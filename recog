@@ -1,0 +1,28 @@
+import speech_recognition as sr
+from gtts import gTTS
+
+r = sr.Recognizer()
+harvard = sr.AudioFile('file.wav')
+with harvard as source:
+    audio = r.record(source)
+
+type(audio)
+x = r.recognize_google(audio)
+#print(x)
+y = open('x.txt','w')
+for i in x:
+    y.write(i)
+y.close()
+    
+
+
+
+text = ''
+with open ('x.txt','r') as file:
+    for line in file:
+        text = text+line
+       
+        
+speech = gTTS(text,'en')
+
+speech.save('hello.mp3')
