@@ -1,7 +1,7 @@
 import speech_recognition as sr
 r = sr.Recognizer()
 mic = sr.Microphone()
-sr.Microphone.list_microphone_names()
+sr.Microphone.list_microphone_names()   #shows list of available input devices
 mic = sr.Microphone(device_index=0)
 with mic as source:
     r.adjust_for_ambient_noise(source)
